@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Website Pribadi — Zacky Zulfadhli Zahwan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-900:#070606; /* hampir hitam */
+      --bg-800:#0f0f0f;
+      --card:#111111;
+      --muted:#bdb6a9;
+      --gold:#caa76a;
+      --gold-2:#e6c681;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      --transition: 320ms cubic-bezier(.2,.9,.2,1);
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Poppins,system-ui,Arial,sans-serif;background:linear-gradient(180deg,var(--bg-900),#0b0b0b);color:#f6f3ee}
+
+    /* Layout */
+    .container{max-width:1100px;margin:28px auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--gold-2));
+      display:flex;align-items:center;justify-content:center;font-weight:800;color:#0b0b0b;font-size:18px;box-shadow:0 6px 18px rgba(202,167,106,.12);
+    }
+    .brand h1{margin:0;font-size:18px;letter-spacing:0.4px}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+    nav{display:flex;gap:12px}
+    .nav-btn{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:10px 14px;border-radius:10px;color:var(--muted);cursor:pointer;font-weight:600;transition:all var(--transition)}
+    .nav-btn:hover{color:var(--gold);transform:translateY(-3px);border-color:rgba(202,167,106,0.12);box-shadow:0 8px 30px rgba(202,167,106,0.06)}
+    .nav-btn.active{color:#fff;background:linear-gradient(90deg,rgba(202,167,106,0.08),rgba(230,198,129,0.03));border:1px solid rgba(202,167,106,0.18)}
+
+    main{margin-top:22px}
+
+    /* Home full-screen hero */
+    .hero{
+      height:70vh;border-radius:var(--radius);overflow:hidden;display:grid;grid-template-columns:1fr;align-items:center;position:relative;padding:36px;background:linear-gradient(180deg, rgba(202,167,106,0.06), rgba(0,0,0,0.45));border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+      backdrop-filter: blur(6px);
+    }
+
+    /* marquee - modern */
+    .marquee-wrap{position:absolute;left:0;right:0;top:18px;overflow:hidden}
+    .marquee{display:inline-block;white-space:nowrap;padding:8px 0;font-weight:700;color:var(--gold);text-shadow:0 2px 18px rgba(202,167,106,0.08);}
+    .marquee .track{display:inline-block;padding-left:100%;animation:marquee 12s linear infinite}
+    @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-100%)} }
+
+    .hero-center{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;z-index:2}
+    .hero h2{font-size:clamp(40px,6vw,84px);margin:0;letter-spacing:6px;font-weight:800;color:linear-gradient(#fff,#ddd)}
+    .hero p{max-width:900px;color:var(--muted);line-height:1.6;margin:0;padding:0 18px}
+
+    /* Content cards */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:20px}
+    .card{background:var(--card);border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.02);box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+    .col-6{grid-column:span 6}
+    .col-4{grid-column:span 4}
+    .col-12{grid-column:span 12}
+
+    /* Biodata card */
+    .profile{display:flex;gap:16px;align-items:center}
+    .profile .avatar{width:120px;height:120px;border-radius:14px;overflow:hidden;border:2px solid rgba(202,167,106,0.12);background:linear-gradient(180deg, rgba(202,167,106,0.08), rgba(0,0,0,0.25));display:flex;align-items:center;justify-content:center;font-weight:800;color:#0b0b0b}
+    .profile h3{margin:0}
+    .info{color:var(--muted);line-height:1.5}
+
+    /* Hobi */
+    .chips{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.12));padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,0.03);font-weight:600;color:var(--muted)}
+
+    /* Galeri */
+    .gallery{display:grid;grid-template-columns:repeat(5, 1fr);gap:12px}
+    .thumb{position:relative;border-radius:10px;overflow:hidden;background:#0b0b0b;border:1px solid rgba(255,255,255,0.03);aspect-ratio:4/5}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform var(--transition),filter var(--transition)}
+    .thumb:hover img{transform:scale(1.06);filter:brightness(1.06)}
+    .thumb .label{position:absolute;left:10px;bottom:8px;background:linear-gradient(90deg, rgba(0,0,0,0.5), rgba(0,0,0,0.25));padding:6px 10px;border-radius:999px;font-weight:700;color:var(--gold);font-size:13px;border:1px solid rgba(202,167,106,0.08)}
+
+    /* Footer */
+    footer{text-align:center;padding:24px;color:var(--muted);font-size:13px}
+
+    /* Responsive */
+    @media (max-width:980px){.gallery{grid-template-columns:repeat(3,1fr)}.col-6{grid-column:span 12}.hero{height:60vh}}
+    @media (max-width:560px){.gallery{grid-template-columns:repeat(2,1fr)}.hero h2{font-size:38px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo"><img src="https://uploads.onecompiler.io/43uxghrvh/43uxgbdr3/black-white-logo-with-letter-z-it_853558-1871.avif" style="width:140px;margin-top:12px solid rgba(255,255,255,0.03);box-shadow:0 8px 30px rgba(0,0,0,0.5);"/></div>
+        <div>
+          <h1>Krushers Web</h1>
+          <p>SMAN 1 Bekasi — XII A2 2</p>
+        </div>
+      </div>
+
+      <nav>
+        <button class="nav-btn active" data-tab="home">Home</button>
+        <button class="nav-btn" data-tab="biodata">Biodata</button>
+        <button class="nav-btn" data-tab="hobi">Hobi</button>
+        <button class="nav-btn" data-tab="galeri">Galeri</button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO / HOME -->
+      <section id="home" class="hero" role="region" aria-label="Home">
+        <div class="marquee-wrap" aria-hidden="true">
+          <div class="marquee"><span class="track"> ✨ Selamat Datang dan Selamat Berkunjung • Selamat Datang dan Selamat Berkunjung ✨ </span></div>
+        </div>
+
+        <div class="hero-center">
+          <h2>HOME</h2>
+          <p>
+            Selamat datang di website pribadi saya. Website ini saya buat sebagai media untuk memperkenalkan diri saya dengan cara yang sederhana namun menarik. Melalui website ini, saya ingin berbagi sedikit tentang siapa saya, apa saja yang saya sukai, dan hal-hal kecil yang menjadi bagian dari kehidupan saya sehari-hari.
+          </p>
+          <p>
+            Di dalam website ini, kalian akan menemukan beberapa halaman penting. Pada bagian Biodata, kalian bisa mengenal saya lebih dekat melalui informasi dasar tentang diri saya. Lalu di halaman Hobi, saya ceritakan berbagai kegiatan yang sering saya lakukan saat waktu luang. Terakhir, di halaman Galeri, kalian bisa melihat kumpulan gambar atau foto pilihan yang saya tampilkan khusus di sini.
+          </p>
+        </div>
+      </section>
+
+      <!-- CONTENT GRID -->
+      <div class="grid">
+        <div id="biodata" class="card col-6" role="region" aria-label="Biodata">
+          <div class="profile">
+            <div class="avatar"><img src="https://uploads.onecompiler.io/43uxghrvh/43uxgbdr3/WhatsApp%20Image%202025-03-29%20at%2012.40.11.jpeg" alt="Foto Zacky" style="width:198px;margin-top:12px solid rgba(255,255,255,0.03);box-shadow:0 8px 30px rgba(0,0,0,0.5);"/></div>
+            <div>
+              <h3>Zacky Zulfadhli Zahwan</h3>
+              <div class="info">
+                <div>Nama Panggilan: Zacky</div>
+                <div>Kelas: XII A2 2</div>
+                <div>Sekolah: SMAN 1 Bekasi</div>
+                <div>Jenis Kelamin: Laki-Laki</div>
+                <div>Umur: 16 Tahun</div>
+                <div>Agama: Islam</div>
+                <div>No.: 0858-9307-7707</div>
+                <div>Email: ziezack07@gmail.com</div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:14px">
+            <!-- Ganti nama file 'profile.jpg' dengan nama file foto asli kamu -->
+          </div>
+          <div style="margin-top:14px">
+            <button class="nav-btn" data-tab="home">⬅ Kembali ke Home</button>
+          </div>
+        </div>
+
+        <div id="hobi" class="card col-6" role="region" aria-label="Hobi">
+          <h3>Hobi</h3>
+          <div class="chips" style="margin-top:12px">
+            <div class="chip">Editing &amp; Design</div>
+            <div class="chip">Gaming</div>
+            <div class="chip">Fotografi</div>
+            <div class="chip">Arts/Menggambar</div>
+          </div>
+          <div style="margin-top:14px">
+            <button class="nav-btn" data-tab="home">⬅ Kembali ke Home</button>
+          </div>
+        </div>
+
+        <div id="galeriCard" class="card col-12" role="region" aria-label="Galeri">
+          <h3>Galeri Foto Pilihan</h3>
+
+          <div class="gallery" style="margin-top:12px">
+            <!-- GANTI NAMA FILE SESUAI FOTO PENTINGMU -->
+            <div class="thumb"><img src="https://uploads.onecompiler.io/43uxghrvh/43uxgbdr3/WhatsApp%20Image%202025-08-27%20at%2020.03.58%20(1).jpeg"></div>
+            <div class="thumb"><img src="https://uploads.onecompiler.io/43uxghrvh/43uxgbdr3/WhatsApp%20Image%202025-08-27%20at%2020.03.53.jpeg"></div>
+            <div class="thumb"><img src="https://uploads.onecompiler.io/43uxghrvh/43uxgbdr3/WhatsApp%20Image%202025-08-27%20at%2020.04.02.jpeg"></div>
+            <div class="thumb"><img src="https://uploads.onecompiler.io/43uxghrvh/43uxgbdr3/WhatsApp%20Image%202025-08-27%20at%2020.03.57.jpeg"></div>
+            <div class="thumb"><img src="https://uploads.onecompiler.io/43uxghrvh/43uxgbdr3/WhatsApp%20Image%202025-08-27%20at%2020.04.04.jpeg"></div>
+            <div class="thumb"><img src="https://uploads.onecompiler.io/43uxghrvh/43uxgbdr3/WhatsApp%20Image%202025-08-27%20at%2020.04.05.jpeg"></div>
+            <div class="thumb"><img src="https://uploads.onecompiler.io/43uxghrvh/43uxgbdr3/bogos.jpeg"></div>
+            <div class="thumb"><img src="https://uploads.onecompiler.io/43uxghrvh/43uxgbdr3/binted.jpeg"></div>
+            <div class="thumb"><img src="https://uploads.onecompiler.io/43uxghrvh/43uxgbdr3/porsche.jpeg"></div>
+          </div>
+
+          <div style="margin-top:14px">
+            <button class="nav-btn" data-tab="home">⬅ Kembali ke Home</button>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+    <footer>
+      © 2025 Zacky Zulfadhli Zahwan™
+    </footer>
+  </div>
+
+  <script>
+    // Tab navigation (single-page behavior)
+    const navBtns = document.querySelectorAll('.nav-btn');
+    const sections = {
+      home: document.getElementById('home'),
+      biodata: document.getElementById('biodata').closest('.card'),
+      hobi: document.getElementById('hobi').closest('.card'),
+      galeri: document.getElementById('galeriCard')
+    };
+
+    function setActive(tab){
+      // nav btn states
+      navBtns.forEach(b=>b.classList.toggle('active', b.dataset.tab===tab));
+
+      // show/hide hero + cards
+      // home shown: hero only
+      if(tab==='home'){
+        sections.home.style.display='grid';
+        sections.biodata.style.display='none';
+        sections.hobi.style.display='none';
+        sections.galeri.style.display='none';
+      } else {
+        sections.home.style.display='none';
+        sections.biodata.style.display='block';
+        sections.hobi.style.display='block';
+        sections.galeri.style.display='block';
+        // show only requested card prominently
+        sections.biodata.style.display = (tab==='biodata') ? 'block':'none';
+        sections.hobi.style.display = (tab==='hobi') ? 'block':'none';
+        sections.galeri.style.display = (tab==='galeri') ? 'block':'none';
+        // scroll into view for better UX on small screens
+        document.getElementById(tab==='galeri'?'galeriCard':tab).scrollIntoView({behavior:'smooth',block:'center'});
+      }
+    }
+
+    navBtns.forEach(b=>b.addEventListener('click',()=> setActive(b.dataset.tab)));
+
+    // init
+    setActive('home');
+  </script>
+</body>
+</html>
