@@ -6,6 +6,28 @@
   <title>Website Pribadi — Zacky Zulfadhli Zahwan</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
+    .back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: #111; 
+    color: #e6b86e;  
+    font-family: Consolas, monospace;
+    font-weight: bold;
+    font-size: 14px;
+    border: 1px solid #e6b86e;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(230,184,110,0.5);
+    transition: 0.3s;
+    }
+    .back-btn:hover {
+    background: #222;
+    color: #ffd97a;
+    transform: translateY(-2px);
+    }
     :root{
       --bg-900:#070606; /* hampir hitam */
       --bg-800:#0f0f0f;
@@ -109,6 +131,7 @@
 
     <main>
       <!-- HERO / HOME -->
+      <a href="https://padukagulu.github.io/center/" class="back-btn">← Kembali ke Terminal</a>
       <section id="home" class="hero" role="region" aria-label="Home">
         <div class="marquee-wrap" aria-hidden="true">
           <div class="marquee"><span class="track"> ✨ Selamat Datang dan Selamat Berkunjung • Selamat Datang dan Selamat Berkunjung ✨ </span></div>
@@ -237,3 +260,4 @@
   </script>
 </body>
 </html>
+
