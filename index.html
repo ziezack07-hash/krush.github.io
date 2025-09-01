@@ -92,8 +92,9 @@
     .info{color:var(--muted);line-height:1.5}
 
     /* Hobi */
-    .chips{display:flex;flex-wrap:wrap;gap:10px}
-    .chip{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.12));padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,0.03);font-weight:600;color:var(--muted)}
+    <div id="hobi" class="tab-content">
+      <h1 class="text-3xl font-bold mb-6">Hobi</h1>
+      <div class="hobi-container">
 
     /* Galeri */
     .gallery{display:grid;grid-template-columns:repeat(5, 1fr);gap:12px}
@@ -139,12 +140,11 @@
         </div>
 
         <div class="hero-center">
-          <h2>HOME</h2>
-          <p>
-            Selamat datang di website pribadi saya. Website ini saya buat sebagai media untuk memperkenalkan diri saya dengan cara yang sederhana namun menarik. Melalui website ini, saya ingin berbagi sedikit tentang siapa saya, apa saja yang saya sukai, dan hal-hal kecil yang menjadi bagian dari kehidupan saya sehari-hari.
-          </p>
+          <h2>WELCOME</h2>
           <p>
             Di dalam website ini, kalian akan menemukan beberapa halaman penting. Pada bagian Biodata, kalian bisa mengenal saya lebih dekat melalui informasi dasar tentang diri saya. Lalu di halaman Hobi, saya ceritakan berbagai kegiatan yang sering saya lakukan saat waktu luang. Terakhir, di halaman Galeri, kalian bisa melihat kumpulan gambar atau foto pilihan yang saya tampilkan khusus di sini.
+          <p>
+            Website ini dibikin dalam rangka "Projek HTML Informatika" dengan Guru Pembimbing Ibu Deswati M.Pd.
           </p>
         </div>
       </section>
@@ -176,13 +176,34 @@
           </div>
         </div>
 
-        <div id="hobi" class="card col-6" role="region" aria-label="Hobi">
-          <h3>Hobi</h3>
-          <div class="chips" style="margin-top:12px">
-            <div class="chip">Editing &amp; Design</div>
-            <div class="chip">Gaming</div>
-            <div class="chip">Fotografi</div>
-            <div class="chip">Arts/Menggambar</div>
+        <!-- Hobi 1 -->
+        <div class="hobi-item">
+          <span class="chip">Editing</span>
+          <p class="hobi-desc">
+            Editing adalah hobiku karena aku suka mengutak-atik video/foto dan membuat hasilnya lebih menarik.
+          </p>
+          <img src="editing.jpg" alt="Foto Editing" class="hobi-img">
+        </div>
+
+    <!-- Hobi 2 -->
+        <div class="hobi-item">
+          <span class="chip">Gaming</span>
+          <p class="hobi-desc">
+            Gaming jadi hiburan sekaligus sarana refreshing buatku, terutama di sela-sela kesibukan sekolah.
+          </p>
+          <img src="gaming.jpg" alt="Foto Gaming" class="hobi-img">
+        </div>
+
+    <!-- Hobi 3 -->
+          <div class="hobi-item">
+            <span class="chip">Coding</span>
+            <p class="hobi-desc">
+              Aku senang belajar coding karena bisa bikin sesuatu yang bermanfaat dan melatih logika.
+            </p>
+            <img src="coding.jpg" alt="Foto Coding" class="hobi-img">
+          </div>
+
+            </div>
           </div>
           <div style="margin-top:14px">
             <button class="nav-btn" data-tab="home">⬅ Kembali ke Home</button>
@@ -261,4 +282,5 @@
   </script>
 </body>
 </html>
+
 
