@@ -92,43 +92,9 @@
     .info{color:var(--muted);line-height:1.5}
 
     /* Hobi */
-    .hobi-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-    .hobi-item {
-    background: #1a1a1a;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
-  }
-
-    .hobi-item .chip {
-    display: inline-block;
-    background: gold;
-    color: black;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-
-    .hobi-desc {
-    color: #ddd;
-    margin-bottom: 10px;
-  }
-
-    .hobi-img {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 10px;
-    display: block;
-  }
-
+    .chips{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.12));padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,0.03);font-weight:600;color:var(--muted)}
+    
     /* Galeri */
     .gallery{display:grid;grid-template-columns:repeat(5, 1fr);gap:12px}
     .thumb{position:relative;border-radius:10px;overflow:hidden;background:#0b0b0b;border:1px solid rgba(255,255,255,0.03);aspect-ratio:4/5}
@@ -152,7 +118,7 @@
       <div class="brand">
         <div class="logo"><img src="https://uploads.onecompiler.io/43uxghrvh/43uxgbdr3/black-white-logo-with-letter-z-it_853558-1871.avif" style="width:140px;margin-top:12px solid rgba(255,255,255,0.03);box-shadow:0 8px 30px rgba(0,0,0,0.5);"/></div>
         <div>
-          <h1>Krushers Web</h1>
+          <h1>Website Zacky Z.Z.</h1>
           <p>SMAN 1 Bekasi — XII A2 2</p>
         </div>
       </div>
@@ -209,33 +175,13 @@
           </div>
         </div>
 
-        <!-- Hobi 1 -->
-        <div class="hobi-item">
-          <span class="chip">Editing</span>
-          <p class="hobi-desc">
-            Editing adalah hobiku karena aku suka mengutak-atik video/foto dan membuat hasilnya lebih menarik.
-          </p>
-          <img src="editing.jpg" alt="Foto Editing" class="hobi-img">
-        </div>
-
-    <!-- Hobi 2 -->
-        <div class="hobi-item">
-          <span class="chip">Gaming</span>
-          <p class="hobi-desc">
-            Gaming jadi hiburan sekaligus sarana refreshing buatku, terutama di sela-sela kesibukan sekolah.
-          </p>
-          <img src="gaming.jpg" alt="Foto Gaming" class="hobi-img">
-        </div>
-
-    <!-- Hobi 3 -->
-          <div class="hobi-item">
-            <span class="chip">Coding</span>
-            <p class="hobi-desc">
-              Aku senang belajar coding karena bisa bikin sesuatu yang bermanfaat dan melatih logika.
-            </p>
-            <img src="coding.jpg" alt="Foto Coding" class="hobi-img">
-          </div>
-
+        <div id="hobi" class="card col-6" role="region" aria-label="Hobi">
+          <h3>Hobi</h3>
+          <div class="chips" style="margin-top:12px">
+            <div class="chip">Editing &amp; Design</div>
+            <div class="chip">Gaming</div>
+            <div class="chip">Fotografi</div>
+            <div class="chip">Arts/Menggambar</div>
             </div>
           </div>
           <div style="margin-top:14px">
@@ -315,6 +261,7 @@
   </script>
 </body>
 </html>
+
 
 
 
