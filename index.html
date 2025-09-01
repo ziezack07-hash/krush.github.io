@@ -92,9 +92,42 @@
     .info{color:var(--muted);line-height:1.5}
 
     /* Hobi */
-    <div id="hobi" class="tab-content">
-      <h1 class="text-3xl font-bold mb-6">Hobi</h1>
-      <div class="hobi-container">
+    .hobi-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+    .hobi-item {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+  }
+
+    .hobi-item .chip {
+    display: inline-block;
+    background: gold;
+    color: black;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+    .hobi-desc {
+    color: #ddd;
+    margin-bottom: 10px;
+  }
+
+    .hobi-img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    display: block;
+  }
 
     /* Galeri */
     .gallery{display:grid;grid-template-columns:repeat(5, 1fr);gap:12px}
@@ -282,5 +315,6 @@
   </script>
 </body>
 </html>
+
 
 
