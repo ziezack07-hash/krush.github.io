@@ -63,8 +63,8 @@
 
     /* Home full-screen hero */
     .hero{
-      height:70vh;border-radius:var(--radius);overflow:shown;display:grid;grid-template-columns:1fr;align-items:center;position:relative;padding:36px;background:linear-gradient(180deg, rgba(202,167,106,0.06), rgba(0,0,0,0.45));border:1px solid rgba(255,255,255,0.03);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+      height:70vh;border-radius:var(--radius);overflow:hidden;display:grid;grid-template-columns:1fr;align-items:center;position:relative;padding:36px;background:linear-gradient(180deg, rgba(202,167,106,0.06), rgba(0,0,0,0.45));border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 10px 400px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
       backdrop-filter: blur(6px);
     }
 
@@ -97,7 +97,7 @@
 
     /* Galeri */
     .gallery{display:grid;grid-template-columns:repeat(5, 1fr);gap:12px}
-    .thumb{position:relative;border-radius:10px;overflow:shown;background:#0b0b0b;border:1px solid rgba(255,255,255,0.03);aspect-ratio:4/5}
+    .thumb{position:relative;border-radius:10px;overflow:hidden;background:#0b0b0b;border:1px solid rgba(255,255,255,0.03);aspect-ratio:4/5}
     .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform var(--transition),filter var(--transition)}
     .thumb:hover img{transform:scale(1.06);filter:brightness(1.06)}
     .thumb .label{position:absolute;left:10px;bottom:8px;background:linear-gradient(90deg, rgba(0,0,0,0.5), rgba(0,0,0,0.25));padding:6px 10px;border-radius:999px;font-weight:700;color:var(--gold);font-size:13px;border:1px solid rgba(202,167,106,0.08)}
@@ -261,6 +261,7 @@
   </script>
 </body>
 </html>
+
 
 
 
